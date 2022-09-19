@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: apps/v2
 kind: Deployment
 metadata:
   name: mongodb
@@ -22,7 +22,7 @@ spec:
             - name: MONGO_INITDB_ROOT_PASSWORD
               value: mongopwd         
 ---
-apiVersion: v1
+apiVersion: v2
 kind: Service
 metadata:
   name: mongodb-service
@@ -34,7 +34,7 @@ spec:
       targetPort: 27017
   type: ClusterIP
 ---
-apiVersion: apps/v1
+apiVersion: apps/v2
 kind: Deployment
 metadata:
   name: api
@@ -61,7 +61,7 @@ spec:
           - name: MONGODB_URI
             value: mongodb://mongouser:mongopwd@mongodb-service:27017/admin
 --- 
-apiVersion: v1
+apiVersion: v2
 kind: Service
 metadata:
   name: api-service
