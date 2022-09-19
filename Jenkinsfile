@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     dockerapp = docker.build("dimitatu/api-produto:${env.BUILD_ID}", '-f ./src/Dockerfile ./src') 
-                     env.IMAGE_NAME = "$version-$BUILD_NUMBER"
+                    env.IMAGE_NAME = "$version-$BUILD_NUMBER"
                 }                
             }
         }
